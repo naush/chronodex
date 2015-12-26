@@ -1,6 +1,19 @@
 import React from 'react'
 
 class Slice extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { opacity: 0.6 }
+  }
+
+  mouseEnter () {
+    this.setState({ opacity: 1.0 })
+  }
+
+  mouseLeave () {
+    this.setState({ opacity: 0.6 })
+  }
+
   toRadian (degrees) {
     return Math.PI * degrees / 180
   }
@@ -20,19 +33,23 @@ class Slice extends React.Component {
     ].join(' ')
     let styles = {
       graph: {
-        fill: 'none',
-        stroke: color
+        fill: color,
+        stroke: color,
+        opacity: this.state.opacity
       },
       stroke: {
-        strokeWidth: 1.0,
+        strokeWidth: 0.0,
         strokeLinecap: 'round',
         strokeLinejoin: 'round',
-        strokeOpacity: 1.0
+        strokeOpacity: this.state.opacity
       }
     }
 
     return (
-      <g transform={ transformation } style={ styles.graph }>
+      <g transform={ transformation }
+        style={ styles.graph }
+        onMouseEnter={ this.mouseEnter.bind(this) }
+        onMouseLeave={ this.mouseLeave.bind(this) }>
         <path d={ description } style={ styles.stroke } />
       </g>
     )
