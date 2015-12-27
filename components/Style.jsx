@@ -5,6 +5,12 @@ class Style {
     this.ms = modular(options)
   }
 
+  event () {
+    return ({
+      color: 'deepskyblue'
+    })
+  }
+
   chart() {
     return ({
       maxHeight: '100%'
