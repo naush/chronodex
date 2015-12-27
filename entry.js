@@ -13,8 +13,8 @@ let events = [
 
 React.render(<Chronodex
                 title='Chronodex'
-                size={128}
-                center={64}
-                radius={32}
+                size={256}
+                center={128}
+                radius={64}
                 events={events}
               />, document.querySelector('#chronodex'))
