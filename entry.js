@@ -1,5 +1,5 @@
 import React from 'react'
-import Chronodex from './components/Chronodex.jsx'
+import Chronodex from './src/Chronodex.jsx'
 
 let events = [
   [12, 1, 'Lunch'],
