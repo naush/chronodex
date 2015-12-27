@@ -1,5 +1,5 @@
 {
-  "name": "slice",
+  "name": "chronodex",
   "version": "1.0.0",
   "description": "",
   "dependencies": {
@@ -10,6 +10,7 @@
     "react": "^0.13.3",
     "react-motion": "0.0.3",
     "simple-modular-scale": "^1.0.2",
+    "simple-slice": "1.1.2",
     "webpack": "^1.10.1",
     "webpack-dev-server": "^1.10.1"
   },

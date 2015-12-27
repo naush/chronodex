@@ -1,22 +1,43 @@
 import React from 'react'
-import Slice from './Slice.jsx'
+import Slice from 'simple-slice'
+import Index from './Index.jsx'
 
 class Pie extends React.Component {
   render () {
     let { size, center, radius } = this.props
 
+    let props = {
+      center: center,
+      color: 'white',
+      strokeWidth: 0.5,
+      opacity: 1.0
+    }
+
     return (
       <div>
         <svg viewBox={[0, 0, size, size].join(' ')}
           style={ { maxHeight: '100%' } }>
-          <Slice center={center} radius={radius} start={0} end={45} color='red' />
-          <Slice center={center} radius={radius} start={45} end={90} color='orange' />
-          <Slice center={center} radius={radius} start={90} end={135} color='yellow' />
-          <Slice center={center} radius={radius} start={135} end={180} color='green' />
-          <Slice center={center} radius={radius} start={180} end={225} color='blue' />
-          <Slice center={center} radius={radius} start={225} end={270} color='indigo' />
-          <Slice center={center} radius={radius} start={270} end={315} color='purple' />
-          <Slice center={center} radius={radius} start={315} end={360} color='white' />
+          <Index center={center} />
+          <Slice {...props} radius={radius} start={0} end={30} />
+          <Slice {...props} radius={radius * 1.2} start={30} end={60} />
+          <Slice {...props} radius={radius * 1.6} start={60} end={90} />
+          <Slice {...props} radius={radius} start={90} end={120} />
+          <Slice {...props} radius={radius * 1.2} start={120} end={150} />
+          <Slice {...props} radius={radius * 1.6} start={150} end={180} />
+          <Slice {...props} radius={radius} start={180} end={210} />
+          <Slice {...props} radius={radius * 1.2} start={210} end={240} />
+          <Slice {...props} radius={radius * 1.6} start={240} end={270} />
+          <Slice {...props} radius={radius} start={270} end={300} />
+          <Slice {...props} radius={radius * 1.2} start={300} end={330} />
+          <Slice {...props} radius={radius * 1.6} start={330} end={360} />
+          <circle
+            cx={center}
+            cy={center}
+            r={radius / 2}
+            fill='white'
+            stroke='black'
+            strokeWidth='0.5'
+          />
         </svg>
       </div>
     )
