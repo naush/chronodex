@@ -1,48 +1,26 @@
 import React from 'react'
-import modular from 'simple-modular-scale'
 import Index from './Index.jsx'
+import Style from './Style.jsx'
 import Slice from 'simple-slice'
 
 class Chronodex extends React.Component {
 
   render () {
     let { size, center, radius } = this.props
-    let ms = modular()
 
-    let styles = {
-      container: {
-        display: 'table',
-        width: '100%',
-        boxSizing: 'border-box',
-        padding: ms[4],
-        minHeight: '100vh',
-        backgroundColor: 'white',
-      },
-      center: {
-        display: 'table-cell',
-        verticalAlign: 'middle',
-      },
-      pie: {
-        maxWidth: ms[10],
-        maxHeight: '100%',
-        margin: 'auto'
-      }
-    }
-
-    let props = {
-      center: center,
-      color: 'white',
-      strokeWidth: 0.5,
-      opacity: 1.0
-    }
+    let style = new Style()
+    let viewBox = [0, 0, size, size].join(' ')
+    let props = { center: center, color: 'white', strokeWidth: 0.5, opacity: 1.0 }
 
     return (
-      <div style={styles.container}>
-        <div style={styles.center}>
-          <div style={styles.pie}>
+      <div style={style.container()}>
+        <div style={style.center()}>
+          <div style={style.inner()}>
             <div>
-              <svg viewBox={[0, 0, size, size].join(' ')}
-                style={ { maxHeight: '100%' } }>
+              <svg
+                viewBox={viewBox}
+                style={style.chart()}
+                >
                 <Index center={center} />
                 <Slice {...props} radius={radius} start={0} end={30} />
                 <Slice {...props} radius={radius * 1.2} start={30} end={60} />
