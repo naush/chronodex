@@ -1,5 +1,9 @@
 import React from 'react'
-import App from './components/App.jsx'
-import data from './data'
+import Chronodex from './components/Chronodex.jsx'
 
-React.render(<App {...data} />, document.querySelector('#app'))
+React.render(<Chronodex
+                title='Chronodex'
+                size={128}
+                center={64}
+                radius={32}
+              />, document.querySelector('#chronodex'))

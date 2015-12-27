@@ -4,6 +4,7 @@
   "description": "",
   "dependencies": {
     "babel-loader": "^5.3.1",
+    "babel-polyfill": "^6.3.14",
     "json-loader": "^0.5.2",
     "lodash": "^3.10.0",
     "node-libs-browser": "^0.5.2",
