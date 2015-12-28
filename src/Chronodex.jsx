@@ -9,10 +9,11 @@ class Chronodex extends React.Component {
     return radius * (1 + eventCount * 0.2)
   }
 
-  hourToDegree (hour) {
+  hourToDegree (hour24) {
     let degree = 0
-    if (hour < 12) {
-      degree = hour * 30
+    let hour12 = hour24 % 12
+    if (hour12 < 12) {
+      degree = hour12 * 30
     }
     return degree
   }

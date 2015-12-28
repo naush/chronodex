@@ -2,14 +2,15 @@ import React from 'react'
 import Chronodex from './src/Chronodex.jsx'
 
 let events = [
-  [12, 1, 'Lunch'],
-  [1, 3, 'Meeting'],
-  [3, 4, 'Coffee'],
-  [4, 5, 'Email'],
-  [5, 6, 'Commute,Reading,Music'],
-  [6, 7, 'Exercise'],
-  [7, 8, 'Dinner,Netflix'],
-  [8, 9, 'Reading']
+  [9, 10, 'Email'],
+  [10, 12, 'Meeting'],
+  [12, 13, 'Lunch'],
+  [13, 15, 'Meeting'],
+  [15, 16, 'Coffee'],
+  [16, 17, 'Email'],
+  [17, 18, 'Commute,Reading,Music'],
+  [18, 19, 'Exercise'],
+  [19, 20, 'Dinner,Netflix']
 ]
 
 React.render(<Chronodex
