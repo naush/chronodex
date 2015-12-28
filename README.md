@@ -17,23 +17,24 @@ npm start
 
 Go to [http://localhost:8080](http://localhost:8080) on your browser to view the chronodex.
 
-<img width="861" alt="chronodex" src="https://cloud.githubusercontent.com/assets/232740/12013726/d4b8b87c-acea-11e5-8d71-e68edc06be0e.png">
+<img width="863" alt="chronodex" src="https://cloud.githubusercontent.com/assets/232740/12013904/d2a1627e-acee-11e5-84e0-2b96f7fe5e3c.png">
 
 # Events
 
-Modify events [here](https://github.com/naush/chronodex/blob/master/entry.js#L5-L16) to reflect your personal calendar.
+Modify events [here](https://github.com/naush/chronodex/blob/master/entry.js#L5-L17) to reflect your personal calendar.
 
 ```javascript
 let events = [
-  [9, 10, 'Email'], // start hour, end hour, event descriptions (comma-delimited)
-  [10, 12, 'Meeting'],
+  [9, 9.5, 'Email'], // start hour, end hour, event descriptions (comma-delimited)
+  [10, 11, 'Meeting'],
+  [11, 11.75, 'Work'],
   [12, 13, 'Lunch'],
   [13, 15, 'Meeting'],
-  [15, 16, 'Coffee'],
-  [16, 17, 'Email'],
-  [17, 18, 'Commute,Reading,Music'],
-  [18, 19, 'Exercise'],
-  [19, 20, 'Dinner,Netflix'],
+  [15, 16, 'Work'],
+  [16, 17, 'Email,Coffee'],
+  [17, 17.5, 'Commute,Reading'],
+  [18, 19, 'Exercise,Music'],
+  [19.75, 20, 'Dinner,Netflix'],
   [20, 21, 'Walk Dog']
 ]
 ```
