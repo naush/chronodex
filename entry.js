@@ -10,7 +10,8 @@ let events = [
   [16, 17, 'Email'],
   [17, 18, 'Commute,Reading,Music'],
   [18, 19, 'Exercise'],
-  [19, 20, 'Dinner,Netflix']
+  [19, 20, 'Dinner,Netflix'],
+  [20, 21, 'Walk Dog']
 ]
 
 React.render(<Chronodex
