@@ -3,15 +3,16 @@ import Chronodex from './src/Chronodex.jsx'
 import OneDayCalendar from './src/SimpleOneDayCalendar.jsx'
 
 let events = [
-  [9, 10, 'Email'],
-  [10, 12, 'Meeting'],
+  [9, 9.5, 'Email'],
+  [10, 11, 'Meeting'],
+  [11, 11.75, 'Work'],
   [12, 13, 'Lunch'],
   [13, 15, 'Meeting'],
-  [15, 16, 'Coffee'],
-  [16, 17, 'Email'],
-  [17, 18, 'Commute,Reading,Music'],
-  [18, 19, 'Exercise'],
-  [19, 20, 'Dinner,Netflix'],
+  [15, 16, 'Work'],
+  [16, 17, 'Email,Coffee'],
+  [17, 17.5, 'Commute,Reading'],
+  [18, 19, 'Exercise,Music'],
+  [19.75, 20, 'Dinner,Netflix'],
   [20, 21, 'Walk Dog']
 ]
 

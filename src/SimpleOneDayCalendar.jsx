@@ -1,12 +1,23 @@
 import React from 'react'
 
 class SimpleOneDayCalendar extends React.Component {
-  format(hour) {
+  formatMinute(minute) {
+    if (minute <= 10) {
+      return '0' + minute
+    } else {
+      return minute
+    }
+  }
+
+  format(time) {
     let period = String.fromCharCode(13250) // ㏂
-    if (hour >= 12) {
+    if (time >= 12) {
       period = String.fromCharCode(13272) // ㏘
     }
-    return `${hour} ${period}`
+    let hour = Math.floor(time)
+    let minute = Math.round((time - hour) * 60)
+
+    return `${hour}:${this.formatMinute(minute)} ${period}`
   }
 
   render () {
