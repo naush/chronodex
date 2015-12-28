@@ -17,7 +17,7 @@ npm start
 
 Go to [http://localhost:8080](http://localhost:8080) on your browser to view the chronodex.
 
-<img width="866" alt="chronodex" src="https://cloud.githubusercontent.com/assets/232740/12013587/1f50c9f4-ace8-11e5-9e91-891e42703d8f.png">
+<img width="861" alt="chronodex" src="https://cloud.githubusercontent.com/assets/232740/12013726/d4b8b87c-acea-11e5-8d71-e68edc06be0e.png">
 
 # Events
 
