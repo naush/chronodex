@@ -4,7 +4,7 @@ An implementation of Chronodex in ReactJS and SVG based on Patrick Ng's [work](h
 
 # Description
 
-> Each page is like a branch, each opened page is a week, each day is like a beautiful flower grew from that page, consist of petals of your day's time slices.
+> Each page is like a branch, each opened page is a week, each day is like a beautiful flower grew from that page, consist of petals of your day's time slices.he
 
 # Installation
 
@@ -21,7 +21,7 @@ Go to [http://localhost:8080](http://localhost:8080) on your browser to view the
 
 # Events
 
-Modify events [here](https://github.com/naush/chronodex/blob/master/entry.js#L4-L13) to reflect your personal calendar.
+Modify events [here](https://github.com/naush/chronodex/blob/master/entry.js#L5-L16) to reflect your personal calendar.
 
 ```javascript
 let events = [
