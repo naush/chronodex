@@ -64,8 +64,8 @@ class Chronodex extends React.Component {
                         radius={this.radius(eventCount)}
                         color={style.event().color}
                         opacity={0.5}
-                        strokeWidth={2.0}
-                        strokeColor={style.event().color}
+                        strokeWidth={4.0}
+                        strokeColor='white'
                         start={this.hourToDegree(start)}
                         end={this.hourToDegree(end)}
                       />
