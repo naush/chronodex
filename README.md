@@ -17,7 +17,7 @@ npm start
 
 Go to [http://localhost:8080](http://localhost:8080) on your browser to view the chronodex.
 
-<img width="529" alt="chronodex" src="https://cloud.githubusercontent.com/assets/232740/12012177/39f7411a-acb7-11e5-823b-40f5603e63ab.png">
+<img width="866" alt="chronodex" src="https://cloud.githubusercontent.com/assets/232740/12013587/1f50c9f4-ace8-11e5-9e91-891e42703d8f.png">
 
 # Events
 
@@ -25,7 +25,7 @@ Modify events [here](https://github.com/naush/chronodex/blob/master/entry.js#L4-
 
 ```javascript
 let events = [
-  [9, 10, 'Email'],
+  [9, 10, 'Email'], // start hour, end hour, event descriptions (comma-delimited)
   [10, 12, 'Meeting'],
   [12, 13, 'Lunch'],
   [13, 15, 'Meeting'],
@@ -37,4 +37,3 @@ let events = [
   [20, 21, 'Walk Dog']
 ]
 ```
-
