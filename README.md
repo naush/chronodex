@@ -4,7 +4,7 @@ An implementation of Chronodex in ReactJS and SVG based on Patrick Ng's [work](h
 
 # Description
 
-> Each page is like a branch, each opened page is a week, each day is like a beautiful flower grew from that page, consist of petals of your day's time slices.he
+> Each page is like a branch, each opened page is a week, each day is like a beautiful flower grew from that page, consist of petals of your day's time slices.
 
 # Installation
 
