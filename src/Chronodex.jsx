@@ -4,6 +4,16 @@ import Style from './Style.jsx'
 import Slice from 'simple-slice'
 
 class Chronodex extends React.Component {
+  filterEvents(events, start, end) {
+    return events.filter(function(event) {
+      let [startDate, endDate, summary] = event
+      return startDate.getHours() <= start.getHours() &&
+             startDate.getMinutes() <= start.getMinutes() &&
+             endDate.getHours() >= end.getHours() &&
+             endDate.getMinutes() >= end.getMinutes()
+    })
+  }
+
   radius(eventCount) {
     let { radius } = this.props
     return radius * (1 + eventCount * 0.2)
@@ -62,7 +72,7 @@ class Chronodex extends React.Component {
                 {
                   events.map((event, index) => {
                     let [start, end, summaries] = event
-                    let eventCount = summaries.split(",").length - 1
+                    let eventCount = this.filterEvents(events, start, end).length - 1
 
                     return (
                       <Slice
