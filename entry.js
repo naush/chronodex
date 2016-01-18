@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Chronodex from './src/Chronodex.jsx'
 import OneDayCalendar from './src/SimpleOneDayCalendar.jsx'
 
@@ -16,7 +17,7 @@ let events = [
   [20, 21, 'Walk Dog']
 ]
 
-React.render(<Chronodex
+ReactDOM.render(<Chronodex
                 title='Chronodex'
                 size={256}
                 center={128}
@@ -24,6 +25,6 @@ React.render(<Chronodex
                 events={events}
               />, document.querySelector('#chronodex'))
 
-React.render(<OneDayCalendar
+ReactDOM.render(<OneDayCalendar
                 events={events}
               />, document.querySelector('#one-day-calendar'))

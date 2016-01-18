@@ -32,25 +32,27 @@ class SimpleOneDayCalendar extends React.Component {
         fontFamily: 'Courier New',
         fontSize: 16
       } }>
-        {
-          events.map((event, index) => {
-            let [start, end, descriptions] = event
+        <tbody>
+          {
+            events.map((event, index) => {
+              let [start, end, descriptions] = event
 
-            return (
-              <tr key={index}>
+              return (
+                <tr key={index}>
+                  <td style={ {
+                    padding: '0 10px 0 10px',
+                    borderLeft: '5px solid deepskyblue',
+                    background: 'whitesmoke'
+                  } }>{this.format(start)} - {this.format(end)}</td>
                 <td style={ {
-                  padding: '0 10px 0 10px',
-                  borderLeft: '5px solid deepskyblue',
-                  background: 'whitesmoke'
-                } }>{this.format(start)} - {this.format(end)}</td>
-              <td style={ {
-                  padding: '0 10px 0 10px',
-                  background: 'whitesmoke'
-                } }>{descriptions.split(",").join(", ")}</td>
-              </tr>
-            )
-          })
-        }
+                    padding: '0 10px 0 10px',
+                    background: 'whitesmoke'
+                  } }>{descriptions.split(",").join(", ")}</td>
+                </tr>
+              )
+            })
+          }
+        </tbody>
       </table>
     )
   }
