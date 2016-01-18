@@ -17,6 +17,29 @@ class SimpleOneDayCalendar extends React.Component {
     return `${hour}:${this.formatMinute(minute)} ${period}`
   }
 
+  renderHeader () {
+    let { events } = this.props
+
+    if (events.length > 0) {
+      let [start, end, summaries] = events[0]
+
+      return (
+        <tr key='-1'>
+          <th
+            colSpan='2'
+            style={ {
+            padding: '0 10px 0 10px',
+            borderLeft: '5px solid deepskyblue',
+            background: 'whitesmoke',
+            width: '180'
+          } }>{ start.toLocaleDateString() }</th>
+        </tr>
+      )
+    } else {
+      return void 0
+    }
+  }
+
   render () {
     let { events } = this.props
 
@@ -30,6 +53,9 @@ class SimpleOneDayCalendar extends React.Component {
         fontSize: 16
       } }>
         <tbody>
+          {
+            this.renderHeader()
+          }
           {
             events.map((event, index) => {
               let [start, end, descriptions] = event

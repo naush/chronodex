@@ -51,7 +51,7 @@ function parseQueryString() {
   return params
 }
 
-readLocalFile('tmp/li-hsuan@namely.com.ics', function(response) {
+readLocalFile('tmp/calendar.ics', function(response) {
   let cevents = parseICalData(response)
   let params = parseQueryString()
   let year = params['year']
