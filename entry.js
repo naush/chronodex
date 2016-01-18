@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Chronodex from './src/Chronodex.jsx'
-import OneDayCalendar from './src/SimpleOneDayCalendar.jsx'
+import DailyCalendar from './src/calendars/DailyCalendar.jsx'
+import MonthlyCalendar from './src/calendars/MonthlyCalendar.jsx'
 import ICAL from 'ical.js'
+import "babel-polyfill"
 
 function readLocalFile(path, callback) {
   let xhr = new XMLHttpRequest()
@@ -32,42 +33,16 @@ function parseICalData(data) {
   return cevents
 }
 
-function filterEvents(events, year, month, date) {
-  return events.filter(function(event) {
-    let [startDate, endDate, summary] = event
-    return (startDate.getFullYear() == year &&
-            startDate.getMonth() == month &&
-            startDate.getDate() == date)
-  })
-}
-
-function parseQueryString() {
-  let pairs = location.search.slice(1).split('&');
-  let params = {}
-  pairs.map(function(pair) {
-    pair = pair.split('=')
-    params[pair[0]] = decodeURIComponent(pair[1] || '')
-  })
-  return params
-}
-
 readLocalFile('tmp/calendar.ics', function(response) {
-  let cevents = parseICalData(response)
-  let params = parseQueryString()
-  let year = params['year']
-  let month = params['month'] - 1
-  let date = params['date']
-  let events = filterEvents(cevents, year, month, date)
+  let ievents = parseICalData(response)
 
-  ReactDOM.render(<OneDayCalendar
-                  events={events}
-                />, document.querySelector('#one-day-calendar'))
+  // ReactDOM.render(<DailyCalendar
+  //                 events={events}
+  //                 />, document.querySelector('#daily-calendar'))
 
-  ReactDOM.render(<Chronodex
-                  title='Chronodex'
-                  size={256}
-                  center={128}
-                  radius={64}
-                  events={events}
-                />, document.querySelector('#chronodex'))
+  ReactDOM.render(<MonthlyCalendar
+                  events={ievents}
+                  year={2015}
+                  month={12}
+                  />, document.querySelector('#monthly-calendar'))
 })

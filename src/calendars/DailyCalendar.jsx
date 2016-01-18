@@ -1,6 +1,6 @@
 import React from 'react'
 
-class SimpleOneDayCalendar extends React.Component {
+class DailyCalendar extends React.Component {
   formatMinute(minute) {
     return minute <= 10 ? '0' + minute : minute
   }
@@ -83,4 +83,4 @@ class SimpleOneDayCalendar extends React.Component {
   }
 }
 
-export default SimpleOneDayCalendar
+export default DailyCalendar
