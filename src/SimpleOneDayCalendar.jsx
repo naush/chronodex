@@ -2,20 +2,17 @@ import React from 'react'
 
 class SimpleOneDayCalendar extends React.Component {
   formatMinute(minute) {
-    if (minute <= 10) {
-      return '0' + minute
-    } else {
-      return minute
-    }
+    return minute <= 10 ? '0' + minute : minute
   }
 
-  format(time) {
+  format(date) {
     let period = String.fromCharCode(13250) // ㏂
-    if (time >= 12) {
+    let hour = date.getHours()
+    let minute = date.getMinutes()
+
+    if (hour > 12) {
       period = String.fromCharCode(13272) // ㏘
     }
-    let hour = Math.floor(time)
-    let minute = Math.round((time - hour) * 60)
 
     return `${hour}:${this.formatMinute(minute)} ${period}`
   }
@@ -42,11 +39,13 @@ class SimpleOneDayCalendar extends React.Component {
                   <td style={ {
                     padding: '0 10px 0 10px',
                     borderLeft: '5px solid deepskyblue',
-                    background: 'whitesmoke'
+                    background: 'whitesmoke',
+                    width: '180'
                   } }>{this.format(start)} - {this.format(end)}</td>
                 <td style={ {
                     padding: '0 10px 0 10px',
-                    background: 'whitesmoke'
+                    background: 'whitesmoke',
+                    width: '250'
                   } }>{descriptions.split(",").join(", ")}</td>
                 </tr>
               )

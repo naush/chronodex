@@ -2,29 +2,72 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Chronodex from './src/Chronodex.jsx'
 import OneDayCalendar from './src/SimpleOneDayCalendar.jsx'
+import ICAL from 'ical.js'
 
-let events = [
-  [9, 9.5, 'Email'],
-  [10, 11, 'Meeting'],
-  [11, 11.75, 'Work'],
-  [12, 13, 'Lunch'],
-  [13, 15, 'Meeting'],
-  [15, 16, 'Work'],
-  [16, 17, 'Email,Coffee'],
-  [17, 17.5, 'Commute,Reading'],
-  [18, 19, 'Exercise,Music'],
-  [19.75, 20, 'Dinner,Netflix'],
-  [20, 21, 'Walk Dog']
-]
+function readLocalFile(path, callback) {
+  let xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status == 200) {
+      callback(xhr.response)
+    }
+  }
+  xhr.open('GET', path, true);
+  xhr.send()
+}
 
-ReactDOM.render(<Chronodex
-                title='Chronodex'
-                size={256}
-                center={128}
-                radius={64}
-                events={events}
-              />, document.querySelector('#chronodex'))
+function parseICalData(data) {
+  let parsed = ICAL.parse(data)
+  let component = new ICAL.Component(parsed)
+  let vevents = component.getAllSubcomponents("vevent")
+  let events = vevents.map((vevent) => new ICAL.Event(vevent))
+  let cevents = []
 
-ReactDOM.render(<OneDayCalendar
-                events={events}
-              />, document.querySelector('#one-day-calendar'))
+  events.map(function(event) {
+    let summary = event.summary
+    let startDate = event.startDate.toJSDate()
+    let endDate = event.endDate.toJSDate()
+    cevents.push([startDate, endDate, summary])
+  })
+
+  return cevents
+}
+
+function filterEvents(events, year, month, date) {
+  return events.filter(function(event) {
+    let [startDate, endDate, summary] = event
+    return (startDate.getFullYear() == year &&
+            startDate.getMonth() == month &&
+            startDate.getDate() == date)
+  })
+}
+
+function parseQueryString() {
+  let pairs = location.search.slice(1).split('&');
+  let params = {}
+  pairs.map(function(pair) {
+    pair = pair.split('=')
+    params[pair[0]] = decodeURIComponent(pair[1] || '')
+  })
+  return params
+}
+
+readLocalFile('tmp/li-hsuan@namely.com.ics', function(response) {
+  let cevents = parseICalData(response)
+  let params = parseQueryString()
+  let year = params['year']
+  let month = params['month'] - 1
+  let date = params['date']
+  let events = filterEvents(cevents, year, month, date)
+
+  ReactDOM.render(<OneDayCalendar
+                  events={events}
+                />, document.querySelector('#one-day-calendar'))
+
+  ReactDOM.render(<Chronodex
+                  title='Chronodex'
+                  size={256}
+                  center={128}
+                  radius={64}
+                  events={events}
+                />, document.querySelector('#chronodex'))
+})

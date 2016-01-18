@@ -14,7 +14,8 @@
     "simple-modular-scale": "^1.0.2",
     "simple-slice": "1.1.4",
     "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.10.1",
+    "ical.js": "1.1.2"
   },
   "scripts": {
     "dev": "webpack-dev-server --progress --colors",

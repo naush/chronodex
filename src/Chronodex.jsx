@@ -18,6 +18,13 @@ class Chronodex extends React.Component {
     return degree
   }
 
+  dateToDegree (date) {
+    let hour = date.getHours()
+    let minutes = date.getMinutes()
+    let hour24 = (hour + minutes / 60).toFixed(2)
+    return this.hourToDegree(hour24)
+  }
+
   render () {
     let { size, center, radius, events } = this.props
 
@@ -54,8 +61,8 @@ class Chronodex extends React.Component {
                 <Slice {...props} radius={radius * 1.4} start={330} end={360} />
                 {
                   events.map((event, index) => {
-                    let [start, end, descriptions] = event
-                    let eventCount = descriptions.split(",").length - 1
+                    let [start, end, summaries] = event
+                    let eventCount = summaries.split(",").length - 1
 
                     return (
                       <Slice
@@ -66,8 +73,8 @@ class Chronodex extends React.Component {
                         opacity={0.2}
                         strokeWidth={2.0}
                         strokeColor='white'
-                        start={this.hourToDegree(start)}
-                        end={this.hourToDegree(end)}
+                        start={this.dateToDegree(start)}
+                        end={this.dateToDegree(end)}
                       />
                     )
                   })
