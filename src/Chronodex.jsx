@@ -75,6 +75,7 @@ class Chronodex extends React.Component {
             events.map((event, index) => {
               let [start, end, summaries] = event
               let eventCount = this.filterEvents(events, start, end).length - 1
+              eventCount = eventCount > 2 ? 2 : eventCount
 
               return (
                 <Slice
