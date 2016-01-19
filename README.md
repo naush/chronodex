@@ -21,7 +21,7 @@ Go to [http://localhost:8080](http://localhost:8080) on your browser to view the
 
 # Events
 
-Modify events [here](https://github.com/naush/chronodex/blob/master/entry.js#L5-L17) to reflect your personal calendar.
+The chronodex component expects the following format for events.
 
 ```javascript
 let events = [
